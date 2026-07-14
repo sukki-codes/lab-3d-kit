@@ -11,6 +11,30 @@ React Three Fiber로 만든 인터랙티브 3D transform readout / bounding-box 
 npm install @sukki/lab-3d-kit @react-three/fiber @react-three/drei three
 ```
 
+## Usage
+
+```tsx
+import { Scene3D, BoundingBox, TransformReadout } from '@sukki/lab-3d-kit';
+import { useRef } from 'react';
+import type { Mesh } from 'three';
+
+function Playground() {
+  const meshRef = useRef<Mesh>(null);
+
+  return (
+    <Scene3D>
+      <BoundingBox target={meshRef}>
+        <mesh ref={meshRef}>
+          <boxGeometry args={[1, 1, 1]} />
+          <meshStandardMaterial color="#22d3ee" />
+        </mesh>
+      </BoundingBox>
+      <TransformReadout target={meshRef} />
+    </Scene3D>
+  );
+}
+```
+
 ## Development
 
 ```bash
@@ -19,3 +43,8 @@ npm run build   # tsup으로 ESM/CJS + d.ts 빌드
 npm run lint
 npm run tsc
 ```
+
+## Status
+
+초기 스캐폴드 단계. `Scene3D` / `BoundingBox` / `TransformReadout` 기본 동작만 구현되어 있고,
+드래그 선택, AABB/OBB 비교 등 스트레치 기능은 아직 없음 (sukki-codes/polio#69 참고).
