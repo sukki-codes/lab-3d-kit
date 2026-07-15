@@ -1,0 +1,72 @@
+{
+  "name": "@sukki/lab-3d-kit",
+  "version": "0.0.1",
+  "description": "Interactive React Three Fiber transform readout & bounding-box visualization kit",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sukki-codes/lab-3d-kit.git"
+  },
+  "homepage": "https://github.com/sukki-codes/lab-3d-kit#readme",
+  "bugs": {
+    "url": "https://github.com/sukki-codes/lab-3d-kit/issues"
+  },
+  "keywords": [
+    "react",
+    "three",
+    "react-three-fiber",
+    "bounding-box",
+    "3d"
+  ],
+  "author": "sukki",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint .",
+    "tsc": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "react": ">=19 <19.3",
+    "react-dom": ">=19 <19.3",
+    "three": ">=0.156"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "^0.185.0",
+    "eslint": "^10",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "three": "^0.185.1",
+    "tsup": "^8.5.1",
+    "typescript": "^6",
+    "typescript-eslint": "^8"
+  }
+}
