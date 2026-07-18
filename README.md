@@ -20,10 +20,11 @@ import type { Mesh } from 'three';
 
 function Playground() {
   const meshRef = useRef<Mesh>(null);
+  const [boxVisible, setBoxVisible] = useState(true);
 
   return (
     <Scene3D>
-      <BoundingBox target={meshRef}>
+      <BoundingBox target={meshRef} visible={boxVisible}>
         <mesh ref={meshRef}>
           <boxGeometry args={[1, 1, 1]} />
           <meshStandardMaterial color="#22d3ee" />
@@ -35,16 +36,28 @@ function Playground() {
 }
 ```
 
+### `BoundingBox` props
+
+| prop | type | default | 설명 |
+| --- | --- | --- | --- |
+| `target` | `RefObject<Mesh \| null>` | — | 박스를 씌울 대상 메시 ref |
+| `visible` | `boolean` | `true` | 와이어프레임 토글. `false`면 매 프레임 재계산도 건너뜀 |
+| `color` | `number` | `0x22d3ee` | 와이어프레임 색상 |
+
 ## Development
 
 ```bash
 npm install
-npm run build   # tsup으로 ESM/CJS + d.ts 빌드
+npm run build         # tsup으로 ESM/CJS + d.ts 빌드
+npm run dev:example   # examples/ vite 플레이그라운드 (브라우저에서 실제 조작/토글 확인)
 npm run lint
 npm run tsc
 ```
 
+`examples/`는 빌드 산출물이 아니라 `src`를 직접 불러오므로 소스 수정이 바로 반영된다.
+
 ## Status
 
-초기 스캐폴드 단계. `Scene3D` / `BoundingBox` / `TransformReadout` 기본 동작만 구현되어 있고,
-드래그 선택, AABB/OBB 비교 등 스트레치 기능은 아직 없음 (sukki-codes/polio#69 참고).
+MVP 기본 동작 구현 완료 — `Scene3D`(캔버스+OrbitControls) / `BoundingBox`(와이어프레임 + `visible` 토글) /
+`TransformReadout`(world·rotation·screen 좌표 HUD). 클릭 다중선택, AABB/OBB 비교 등 스트레치 기능은
+아직 없음 (sukki-codes/polio#69 참고).
