@@ -1,4 +1,5 @@
 import { useFrame } from '@react-three/fiber';
+import type { RefObject } from 'react';
 import { StrictMode, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import type { Mesh } from 'three';
@@ -6,7 +7,7 @@ import type { Mesh } from 'three';
 import { BoundingBox, Scene3D, TransformReadout } from '../src/index';
 
 /** 매 프레임 천천히 회전하는 데모용 큐브. */
-function SpinningCube({ meshRef }: { meshRef: React.RefObject<Mesh | null> }) {
+function SpinningCube({ meshRef }: { meshRef: RefObject<Mesh | null> }) {
   useFrame((_, delta) => {
     const mesh = meshRef.current;
     if (!mesh) return;
