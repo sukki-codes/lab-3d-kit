@@ -43,6 +43,8 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
+    "dev:example": "vite examples",
+    "build:example": "vite build examples",
     "lint": "eslint .",
     "tsc": "tsc --noEmit"
   },
@@ -60,6 +62,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/three": "^0.185.0",
+    "@vitejs/plugin-react": "^5.2.0",
     "eslint": "^10",
     "eslint-plugin-react-hooks": "^7.1.1",
     "react": "^19.2.7",
@@ -67,6 +70,11 @@
     "three": "^0.185.1",
     "tsup": "^8.5.1",
     "typescript": "^6",
-    "typescript-eslint": "^8"
+    "typescript-eslint": "^8",
+    "vite": "^7.3.6"
+  },
+  "allowScripts": {
+    "esbuild@0.27.7": true,
+    "fsevents@2.3.3": true
   }
 }
